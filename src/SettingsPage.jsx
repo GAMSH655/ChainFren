@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle , FaPen } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { HiOutlineHome, HiOutlineChartBar } from "react-icons/hi";
 import { MdOutlineStream, MdMonetizationOn } from "react-icons/md";
@@ -7,11 +7,21 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import Avatar from "./assets/Avatar.png"
 import Logo from "./assets/Logo.png"
-
+import { NavLink } from "react-router-dom";
 export default function SettingsPage() {
   const [username, setUsername] = useState("Kelvin Agboje");
   const [email, setEmail] = useState("johndoe@email.com");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+
+  const sideBarData=[
+    {Link : "#" , name:"home" , LinkIcon:<HiOutlineHome/>},
+    {Link : "#" , name:"Stream" , LinkIcon:<MdOutlineStream/>},
+    {Link : "#" , name:"Setting" , LinkIcon:<FiSettings/>},
+    {Link : "#" , name:"customize channel" , LinkIcon:<FaPen/>},
+    {Link : "#" , name:"Monetization" , LinkIcon:  <MdMonetizationOn/>},
+]
+
   
   return (
     <div className="flex h-screen bg-gray-100">
@@ -19,30 +29,21 @@ export default function SettingsPage() {
       <div className={`fixed top-0 left-0 bg-white shadow-lg p-5 z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform md:translate-x-0 md:w-64 h-full md:fixed` }>
         <h2 className="text-lg font-bold mb-4">CREATOR DASHBOARD</h2>
         <ul className="space-y-4">
-          <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-            <HiOutlineHome className="text-xl" />
-            <span>Home</span>
-          </li>
-          <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-            <MdOutlineStream className="text-xl" />
-            <span>Stream</span>
-          </li>
-          <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-            <FiSettings className="text-xl" />
-            <span>Customize channel</span>
-          </li>
-          <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-            <HiOutlineChartBar className="text-xl" />
-            <span>Analytics</span>
-          </li>
-          <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-            <MdMonetizationOn className="text-xl" />
-            <span>Monetization</span>
-          </li>
-          <li className="flex items-center space-x-2 cursor-pointer p-2 bg-blue-500 text-white rounded-md">
-            <FiSettings className="text-xl" />
-            <span>Settings</span>
-          </li>
+          {
+          sideBarData.map(({ Link, LinkIcon, name }, index) => (
+            <NavLink 
+              to={Link} 
+              key={index} 
+              className={({ isActive }) => 
+                `flex items-center space-x-2 p-2 rounded-md transition-colors duration-300 
+                ${isActive ? "bg-blue-500 text-white" : "text-black hover:bg-blue-500 hover:text-white"}`
+              }
+            >
+              {LinkIcon}
+              <span>{name}</span>
+            </NavLink>
+          ))
+        }
         </ul>
       </div>
       
