@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import Sidebar from '../Sidebar'
 import Header from '../Header'
 import Ramp from "../assets/Ramp.png";
@@ -7,8 +6,13 @@ import Tranzak from "../assets/Tranzak.png"
 import Stripe from "../assets/Stripe.png"
 import Lefi from "../assets/Lefi.png"
 import { AiFillExclamationCircle } from "react-icons/ai";
-
+import { useState } from 'react';
 const Monetization = () => {
+  const [showPayment, setShowPayment] = useState(false);
+
+  const showPaymntHandler = () =>{
+    setShowPayment(!showPayment)
+  }
      const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="flex h-screen bg-gray-100">
@@ -28,8 +32,8 @@ const Monetization = () => {
          
          </div>
          <h3 className="font-bold text-xl">Choose payment method</h3>
-         <button className="capitalize w-full mt-[15px] p-[8px] bg-blue-500 rounded-md text-white"> withdraw</button>
-            <div className="mt-4">
+         <button className="capitalize w-full mt-[15px] p-[8px] bg-blue-500 rounded-md text-white" onClick={showPaymntHandler}> withdraw</button>
+          {showPayment &&   <div className="mt-4">
            <label className="text-sm font-semibold text-[#DFE0E1]">Amount</label>
            <input
              type="number"
@@ -58,12 +62,12 @@ const Monetization = () => {
             <p className="text-xs  mt-4">
           ⚠️Funds may be irrecoverable if you enter an incorrect wallet address. It is crucial to ensure the accuracy of the provided wallet address to avoid any loss.
         </p>
-            </div>
+       </div>
            
-         </div>
+         </div>}
       </div>
-          <div>
-            <div className="flex flex-col w-full gap-3  md:grid  md:grid-cols-2 md:gap-2 p-[10px]">
+          <div  className='w-full mt-4 md:mt-0'>
+            <div className="flex flex-col  gap-3   md:grid  md:grid-cols-2 md:gap-2 p-[10px]">
             <div className=" col-span-1 border-2 border-[#DFE0E1] rounded-lg">
               <h3 className="font-bold text-xl  p-[10px]">Revenue</h3>
               <p className="text-2xl font-bold p-[10px]">$2,193.00</p>
