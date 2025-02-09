@@ -5,6 +5,7 @@ import { FiSettings } from "react-icons/fi";
 import { HiOutlineHome, HiOutlineChartBar } from "react-icons/hi";
 import { MdOutlineStream} from "react-icons/md";
 import { NavLink } from "react-router-dom";
+
 const Sidebar = ({sidebarOpen , setSidebarOpen}) => {
   const sideBarData=[
     { Link: "/", name:"Home", LinkIcon: <HiOutlineHome /> },
@@ -12,7 +13,7 @@ const Sidebar = ({sidebarOpen , setSidebarOpen}) => {
     { Link: "/customize", name: "Customize Channel", LinkIcon: <FaPen /> },
     { Link: "/analytics", name: "Analytics", LinkIcon: <SiSimpleanalytics /> },
     { Link: "/monetization", name: "Monetization", LinkIcon: <FaSackDollar /> },
-    { Link: "/settings", name: "setting", LinkIcon: <FiSettings /> },
+    { Link: "/setting", name: "setting", LinkIcon: <FiSettings /> },
 ]
   return (
     <div>
