@@ -1,38 +1,43 @@
+import React from 'react'
+import { FaSackDollar ,FaPen } from "react-icons/fa6";
+import { SiSimpleanalytics } from "react-icons/si";
+import { FiSettings } from "react-icons/fi";
+import { HiOutlineHome, HiOutlineChartBar } from "react-icons/hi";
+import { MdOutlineStream} from "react-icons/md";
+import { NavLink } from "react-router-dom";
+const Sidebar = ({sidebarOpen , setSidebarOpen}) => {
+  const sideBarData=[
+    { Link: "/", name:"Home", LinkIcon: <HiOutlineHome /> },
+    { Link: "/stream", name: "Stream", LinkIcon: <MdOutlineStream /> },
+    { Link: "/customize", name: "Customize Channel", LinkIcon: <FaPen /> },
+    { Link: "/analytics", name: "Analytics", LinkIcon: <SiSimpleanalytics /> },
+    { Link: "/monetization", name: "Monetization", LinkIcon: <FaSackDollar /> },
+    { Link: "/settings", name: "setting", LinkIcon: <FiSettings /> },
+]
+  return (
+    <div>
+          <div className={`fixed top-0 left-0 bg-white shadow-lg p-5 z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform md:translate-x-0 md:w-64 h-full md:fixed` }>
+                <h2 className="text-lg font-bold mb-4">CREATOR DASHBOARD</h2>
+                <ul className="space-y-4">
+                  {
+                  sideBarData.map(({ Link, LinkIcon, name }, index) => (
+                    <NavLink 
+                      to={Link} 
+                      key={index} 
+                      className={({ isActive }) => 
+                        `flex items-center space-x-2 p-2 rounded-md transition-colors duration-300 
+                        ${isActive ? "bg-blue-500 text-white" : "text-black hover:bg-blue-500 hover:text-white"}`
+                      }
+                    >
+                      {LinkIcon}
+                      <span className="capitalize text-xl">{name}</span>
+                    </NavLink>
+                  ))
+                }
+                </ul>
+              </div>
+    </div>
+  )
+}
 
-import { AiOutlineMenu } from "react-icons/ai";
-
-// const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
-//   return (
-//     <div className={`fixed top-0 left-0 bg-white shadow-lg p-5 z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform md:translate-x-0 md:w-64 h-full md:fixed`}>
-//       <h2 className="text-lg font-bold mb-4">CREATOR DASHBOARD</h2>
-//       <ul className="space-y-4">
-//         <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-//           <HiOutlineHome className="text-xl" />
-//           <span>Home</span>
-//         </li>
-//         <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-//           <MdOutlineStream className="text-xl" />
-//           <span>Stream</span>
-//         </li>
-//         <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-//           <FiSettings className="text-xl" />
-//           <span>>
-//         <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-//           <HiOutlineChartBar className="text-xl" />
-//           <span>Analytics</span>
-//         </li>
-//         <li className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 rounded-md">
-//           <MdMonetizationOn className="text-xl" />
-//           <span>Monetization</span>
-//         </li>
-//         <li className="flex items-center space-x-2 cursor-pointer p-2 bg-blue-500 text-white rounded-md">
-//           <FiSettings className="text-xl" />
-//           <span>Settings</span>
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Sidebar;
-
+export default Sidebar
