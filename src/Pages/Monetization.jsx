@@ -5,7 +5,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Money from "../Tabs/Monetize";
-import Subscription from "../Pages/Subscription";
+import Subscription from "../Tabs/Subscription"
+import Donations from "../Tabs/Donations"
+import Store from "../Tabs/Store"
 const a11yProps = (index) => {
   return {
     id: `simple-tab-${index}`,
@@ -41,16 +43,17 @@ const Monetization = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+    <div className="flex h-screen bg-white">
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
       <div className="flex-1 md:ml-64 overflow-auto">
-        <Header />
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <Box sx={{ width: '100%' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
               <Tab label="Overview" {...a11yProps(0)} />
               <Tab label="Subscription" {...a11yProps(1)} />
-              <Tab label="Item Three" {...a11yProps(2)} />
+              <Tab label="Donations" {...a11yProps(2)} />
+              <Tab label="Store" {...a11yProps(3)} />
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
@@ -60,7 +63,10 @@ const Monetization = () => {
            < Subscription/>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
-            Item Three
+           <Donations/>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={3}>
+           <Store/>
           </CustomTabPanel>
         </Box>
       </div>
@@ -68,4 +74,5 @@ const Monetization = () => {
   );
 };
 
-export default Monetization;
+export default Monetization
+

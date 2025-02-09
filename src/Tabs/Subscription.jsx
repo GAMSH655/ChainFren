@@ -35,7 +35,7 @@ const Subscription = () => {
       </div>
 
       {/* Subscription Type */}
-      <div className=" p-4 rounded-lg shadow-lg w-1/2 border-2  border-[#DFE0E1]">
+      <div className=" p-4 rounded-lg shadow-lg w-full  md:w-1/2 border-2  border-[#DFE0E1]">
         <h2 className="text-lg font-semibold mb-3">Subscription</h2>
 
         <div className="mb-4">
