@@ -32,7 +32,7 @@ const Monetization = () => {
          
          </div>
          <h3 className="font-bold text-xl">Choose payment method</h3>
-         <button className="capitalize w-full mt-[15px] p-[8px] bg-blue-500 rounded-md text-white" onClick={showPaymntHandler}> withdraw</button>
+         <button className={`capitalize w-full mt-[15px] p-[8px] bg-blue-500 rounded-md text-white ${showPayment ? "hidden" : ""}`} onClick={showPaymntHandler}> withdraw</button>
           {showPayment &&   <div className="mt-4">
            <label className="text-sm font-semibold text-[#DFE0E1]">Amount</label>
            <input
