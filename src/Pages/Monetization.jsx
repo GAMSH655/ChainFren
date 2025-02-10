@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Sidebar from '../Sidebar';
-import Header from '../Header';
+import Sidebar from '../Components/Sidebar';
+import Header from '../Components/Header';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';

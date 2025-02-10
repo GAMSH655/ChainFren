@@ -1,5 +1,6 @@
 import React from 'react'
 import Shirt from "../assets/shirt.png"
+import { NavLink } from 'react-router-dom'
 const Store = () => {
   return (
     <div>
@@ -18,7 +19,9 @@ const Store = () => {
         <div className="mt-4 shadow-lg p-6 rounded-lg bg-white w-full md:w-[805px] w">
         <div className="flex justify-between">
         <h3 className="font-semibold text-xl">Active Products</h3> 
-        <button className="bg-blue-500 p-[7px] w-[140px] rounded-md">Add Products</button> 
+        <button className="bg-blue-500 p-[7px] w-[140px] rounded-md">
+           <NavLink to="/AddProd">Add Product</NavLink>
+        </button> 
         </div>
        
        

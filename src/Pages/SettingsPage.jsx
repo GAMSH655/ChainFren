@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Header from "../Header";
-import Sidebar from "../Sidebar";
+import Header from "../Components/Header";
+import Sidebar from "../Components/Sidebar";
 import Avatar from "../assets/Avatar.png"
 const SettingsPage =()=> {
   const [username, setUsername] = useState("Kelvin Agboje");

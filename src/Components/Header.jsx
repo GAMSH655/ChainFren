@@ -1,7 +1,7 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
-import Logo from "./assets/Logo.png";
+import Logo from "../../src/assets/logo.png";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
   return (
