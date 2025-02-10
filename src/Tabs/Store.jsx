@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Shirt from "../assets/shirt.png"
 const Store = () => {
   return (
     <div>
@@ -20,11 +20,73 @@ const Store = () => {
         <h3 className="font-semibold text-xl">Active Products</h3> 
         <button className="bg-blue-500 p-[7px] w-[140px] rounded-md">Add Products</button> 
         </div>
+       
+       
+        <div className="flex mt-6 border-2 border-[#DFE0E1] p-6 rounded-lg bg-white ">
+          <img src={Shirt} alt="" />
+          <div className="ml-2 flex justify-between items-center w-full">
+           <div className="">
+           <h3 className="font-bold text-2xl uppercase">WAGMI DAO T-Shirt - Black</h3>
+           <span className="text-gray-500 font-bold">$40.00</span>
+           </div>
+           <button className="p-[7px] w-[140px] rounded-md border-2 border-black ">Edit</button>
+          </div>
         </div>
-           
+       
+       
+        <div className="flex mt-6 border-2 border-[#DFE0E1] p-6 rounded-lg">
+          <img src={Shirt} alt="" />
+          <div className="ml-2 flex justify-between items-center w-full">
+           <div className="">
+           <h3 className="font-bold text-2xl uppercase">WAGMI DAO T-Shirt - Black</h3>
+           <span className="text-gray-500 font-bold">$40.00</span>
+           </div>
+           <button className="p-[7px] w-[140px] rounded-md border-2 border-black ">Edit</button>
+          </div>
+        </div>
+       
+       
+       
+       
+       
+        </div>     
       </div>
     </div>
   )
 }
 
 export default Store
+
+// import { useState } from "react";
+
+// const Modal = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const toggleModal = () => setIsOpen(!isOpen);
+
+//   return (
+//     <div className="flex justify-center items-center min-h-screen">
+//       <button 
+//         className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none"
+//         onClick={toggleModal}
+//       >
+//         Open Modal
+//       </button>
+//       {isOpen && (
+//         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20">
+//           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+//             <h2 className="text-xl font-bold mb-4">Modal Title</h2>
+//             <p className="mb-4">This is a modal dialog.</p>
+//             <button 
+//               className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none"
+//               onClick={toggleModal}
+//             >
+//               Close
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Modal;
